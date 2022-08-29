@@ -4,15 +4,15 @@ const date = require(__dirname + "/date.js");
 
 const app = express();
 
-let item = "";
-let items = [];
+const item = "";
+const items = [];
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", function(req, res){
-    let day = date();
+    const day = date.getDate();
     res.render("list", {todayDate: day, newItems: items});
 });
 
